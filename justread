@@ -1,4 +1,63 @@
-FOSA-1
+"""
+Write a complete Python script to process a flight operation narrative Word document 
+and classify events using OpenAI GPT-4o Mini model based on the Threat-Error-Management (TEM) framework.
+
+Requirements:
+
+1. Read input from a .docx Word file.
+2. Extract full text content.
+3. Automatically split the document into operational phases based on ALL CAPS headings 
+   such as:
+   DISPATCH
+   PRE FLIGHT
+   ENGINE START
+   TAXI OUT
+   TAKE OFF
+   CLIMB
+   CRUISE
+   DESCENT
+   LANDING
+   EVENT REVIEW
+
+4. Within each phase:
+   - Split into logical event blocks (3–6 sentences per block).
+   - Avoid splitting mid-sentence.
+
+5. Send each event block to OpenAI GPT-4o Mini model using the official OpenAI Python SDK.
+   - Use temperature=0.1
+   - Use max_tokens reasonable limit
+   - Use structured JSON output format
+
+6. Use the following system prompt for classification:
+
+"You are an Aviation Safety Pilot SME operating under TEM framework.
+Classify into Threat, Error, UAS, Response, Outcome.
+Return strict JSON."
+
+7. Collect responses for all phases and store results in:
+   - A structured Python dictionary
+   - Also save final output as a JSON file named tem_analysis_output.json
+
+8. Add:
+   - Error handling
+   - API retry logic
+   - Rate limit handling
+   - Logging for each processed phase
+
+9. Use modular functions:
+   - read_docx()
+   - split_phases()
+   - split_event_blocks()
+   - call_openai_model()
+   - save_output()
+
+10. Use clean, production-level Python code.
+11. Add comments explaining each step.
+12. Do not use deprecated OpenAI API syntax.
+13. Use environment variable for OPENAI_API_KEY.
+
+Return complete working code.
+"""FOSA-1
 
 DISPATCH
 
